@@ -1,4 +1,4 @@
-var https = require('https');
+var http = require('http');
 var twilio = require('twilio');
 var express = require('express');
 var bodyParser = require('body-parser');
@@ -15,38 +15,30 @@ var WEATHERAPPID = 'appid=2a2c8eb40b6adba813e3d7f575cdff50';
 var urlPath = '/data/2.5/weather?' + zipCode + ',' + countryCode + '&' + WEATHERAPPID;
 
 
-//make request now
-
+//setting path and opeiton s 
 var options = {
 	       
-	       hostname: 'http://api.openweathermap.org/',
-	       port: 3000
-	       path:  urlPath
-	       method: 'GET'
+    hostname: 'api.openweathermap.org', 
+    path:  urlPath,
+    //    method: 'GET'
 	       
 };
  
-var req = https.request(options, function(res) {
+var req = http.request(options, function(res) {
 
-	var responseBode = "";
-	console.log("Started");
-	console.log("Response Headers: %j", res.headers);
-
-	res.setEncoding('UTF-8');
-
-	res.once('data', function(chunk){
-		console.log(chunk);
-	   
-	    });
-
+	var responseBody = "";
 
 	res.on('data', function(chunk){
-		
-		console.log(`--chunck--`);
+
+		responseBody += chunk;
 
 
+	    });
+	res.on('end', function() {
+
+		console.log(responseBody);
 
 	    });
 
 
- });
+    }).end();
