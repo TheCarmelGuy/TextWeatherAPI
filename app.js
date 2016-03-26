@@ -2,7 +2,9 @@ var http = require('http');
 var twilio = require('twilio');
 var express = require('express');
 var bodyParser = require('body-parser');
+var cronJob = require(
 
+var client = twilio('ACee50e57ae84aba70052bf1e47b4b32d7','0351e3497ba5260b53a2fc486d6d8b3c');
 
 //location information for accumuilating weather data
 var countryCode = 'us';
@@ -20,25 +22,24 @@ var options = {
 	       
     hostname: 'api.openweathermap.org', 
     path:  urlPath,
-    //    method: 'GET'
+    method: 'GET'
 	       
 };
- 
+
+
 var req = http.request(options, function(res) {
 
-	var responseBody = "";
+    var responseBody = "";
+    //sollect all the indormation as a json
+    res.on('data', function(chunk){
+	
+	responseBody += chunk;
+				
+    });
+    res.on('end', function() {
+	
+	//TODO implement BODY PARSER TO EXTRACT INFORMATION AND TWILIO API TO SEND NEW INFORMATION
+    });
+    
+}).end();
 
-	res.on('data', function(chunk){
-
-		responseBody += chunk;
-
-
-	    });
-	res.on('end', function() {
-
-		console.log(responseBody);
-
-	    });
-
-
-    }).end();

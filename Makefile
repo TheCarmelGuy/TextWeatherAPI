@@ -1,4 +1,4 @@
 quickweather: 
 	node app.js
 clean:
-	rm -f *~
+	rm -f *~ 
