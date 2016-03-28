@@ -28,8 +28,8 @@ request({url:url , qs: qs} , function(err, res, body)  {
     var info = JSON.parse(body);//data information on the weather at a particular location 
     console.log(info);
     var weather = info.main;
-    var sugestion
-   var bodyOfMessage = `Good Morning Alan! The temperature today is ${weather.temp}. The high today is ${weather.temp_max} and the low today is ${weather.temp_min}. Have a great day!`;
+    
+    var bodyOfMessage = `Good Morning Alan! The temperature today is ${weather.temp}. The high today is ${weather.temp_max} and the low today is ${weather.temp_min}. Have a great day!`;
     console.log(bodyOfMessage);
 
     
