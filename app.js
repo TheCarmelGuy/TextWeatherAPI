@@ -30,12 +30,12 @@ request({url:url , qs: qs} , function(err, res, body)  {
     console.log(info);
     var weather = info.main;
 
-   var bodyOfMessage = `Good Morning Komel! The temperature today is ${weather.temp}. The high today is ${weather.temp_max} and the low today is ${weather.temp_min}. Enjoy your day today!`;
+   var bodyOfMessage = `Good Morning Alan! The temperature today is ${weather.temp}. The high today is ${weather.temp_max} and the low today is ${weather.temp_min}. Have a great day!`;
     console.log(bodyOfMessage);
 
     //send message to certain person
     client.sendMessage({
-	to:'2158503673',
+	to:'+14845152237',
 	from:'+12672961860',
 	body: bodyOfMessage
     }, null, true); 
