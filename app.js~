@@ -31,7 +31,7 @@ request({url:url , qs: qs} , function(err, res, body)  {
     console.log(info);
     var weather = info.main;
     
-    var bodyOfMessage = `Good Morning Komel! The temperature today is ${weather.temp} Degrees. The high today is ${weather.temp_max} Degrees and the low today is ${weather.temp_min} Degrees. Have a great day!`;
+    var bodyOfMessage = `Good Morning Komel! The temperature today is ${weather.temp}. The high today is ${weather.temp_max} and the low today is ${weather.temp_min}. Have a great day!`;
     console.log(bodyOfMessage);
 
     
